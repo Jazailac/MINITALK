@@ -6,7 +6,7 @@
 /*   By: jazailac <jazailac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:17:01 by jazailac          #+#    #+#             */
-/*   Updated: 2025/02/15 11:09:56 by jazailac         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:05:45 by jazailac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void signal_handler(int sig, siginfo_t *info, void *x)
             ft_printf("\n");
             kill(pid, SIGUSR1);
         }
-        else
+        else if (i == 8)
             ft_printf("%c", current);
         i = 0;
         current = 0;

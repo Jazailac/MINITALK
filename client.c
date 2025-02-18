@@ -6,7 +6,7 @@
 /*   By: jazailac <jazailac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:16:58 by jazailac          #+#    #+#             */
-/*   Updated: 2025/02/15 11:10:12 by jazailac         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:06:24 by jazailac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void signal_handler(int sig)
 {
     if (sig == SIGUSR1)
-        ft_printf("Message sent succesfully !");
+        ft_printf("Message sent succesfully ✅✅✅\n");
 }
 
 
@@ -46,10 +46,9 @@ void send_signal(int pid, unsigned char c)
                 return;
             }
         }
-        usleep(73); 
+        usleep(75); 
         i--;
     }
-    usleep(42);
 }
 
 int main(int ac, char **av)
@@ -66,7 +65,7 @@ int main(int ac, char **av)
     pid = ft_atoi(av[1]);
     str = av[2];
     signal(SIGUSR1, signal_handler);
-    if (!str || pid <= 0 || pid > 32768)
+    if (!str || pid <= 0 || pid > 4194304)
     {
         ft_printf("Wrong arguments !");
         return (1);
