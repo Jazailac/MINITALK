@@ -6,7 +6,7 @@
 /*   By: jazailac <jazailac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:17:01 by jazailac          #+#    #+#             */
-/*   Updated: 2025/02/21 15:39:25 by jazailac         ###   ########.fr       */
+/*   Updated: 2025/02/22 20:08:54 by jazailac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,17 @@ void signal_handler(int sig, siginfo_t *info, void *x)
 
     (void)x;
     if (pid == 0)
-        pid =info->si_pid;
+        pid = info->si_pid;
     if (pid != info->si_pid)
-    {
-        write(1, "\n", 1);
+    { 
         current = 0;
         i = 0;
         pid = info->si_pid;
+        write(1, "\n", 1);
     }
     current <<= 1;  
     current |= (sig == SIGUSR1);  
     i++;
-
     if (i == 8)
     {
         if (current == '\0')
@@ -52,7 +51,7 @@ void signal_handler(int sig, siginfo_t *info, void *x)
             ft_printf("\n");
             kill(pid, SIGUSR1);
         }
-        else if (i == 8 && current)
+        else if (i == 8)
             ft_printf("%c", current);
         i = 0;
         current = 0;
